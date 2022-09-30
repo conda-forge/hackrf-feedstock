@@ -1,4 +1,4 @@
-{% set version = "2021.03.1" %}
+{% set version = "2022.09.1" %}
 {% set lib_major_version = "0" %}
 
 package:
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/greatscottgadgets/hackrf/releases/download/v{{ version }}/hackrf-{{ version }}.tar.xz
-  sha256: a43e5080c11efdfe69ddebcc35a02b018e30e820de0e0ebdc7948cf7b0cd93a3
+  sha256: bacd4e7937467ffa14654624444c8b5c716ab470d8c1ee8d220d2094ae2adb3e
   patches:
     - 0001-Rename-hackrf.dll-to-hackrf-0.dll-on-Windows.patch
 
@@ -116,30 +116,21 @@ about:
   license: GPL-2.0-or-later
   license_family: GPL
   license_file: COPYING
-  summary: 'Host software for HackRF, a low cost, open source software radio platform.'
+  summary: Host software for HackRF, a low cost, open source software radio platform.
   # The remaining entries in this section are optional, but recommended.
   description: >
-    HackRF One from Great Scott Gadgets is a Software Defined Radio peripheral
-    capable of transmission or reception of radio signals from 1 MHz to 6 GHz.
-    Designed to enable test and development of modern and next generation radio
-    technologies, HackRF One is an open source hardware platform that can be
-    used as a USB peripheral or programmed for stand-alone operation.
+    HackRF One from Great Scott Gadgets is a Software Defined Radio peripheral capable of transmission or reception of radio signals from 1 MHz to 6 GHz. Designed to enable test and development of modern and next generation radio technologies, HackRF One is an open source hardware platform that can be used as a USB peripheral
+    or programmed for stand-alone operation.
 
-    The `libhackrf{{ lib_major_version }}` package contains the library for
-    HackRF devices, the `libhackrf` contains the development files for
-    compiling against the HackRF library, and the `hackrf` package contains
-    command line tools for using the devices.
+    The `libhackrf{{ lib_major_version }}` package contains the library for HackRF devices, the `libhackrf` contains the development files for compiling against the HackRF library, and the `hackrf` package contains command line tools for using the devices.
 
-    For Linux users of `hackrf`, you will likely want to link the provided udev
-    rule into your system installation in order for the hardware to have the
-    correct permissions:
+    For Linux users of `hackrf`, you will likely want to link the provided udev rule into your system installation in order for the hardware to have the correct permissions:
 
         sudo ln -s $CONDA_PREFIX/lib/udev/rules.d/53-hackrf.rules /etc/udev/rules.d/
         sudo udevadm control --reload
         sudo udevadm trigger
 
-    Then, make sure your user account belongs to the plugdev group in order to
-    be able to access your device:
+    Then, make sure your user account belongs to the plugdev group in order to be able to access your device:
 
         sudo usermod -a -G plugdev <user>
 
