@@ -12,21 +12,17 @@ source:
     - 0001-Rename-hackrf.dll-to-hackrf-0.dll-on-Windows.patch
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
     - {{ compiler('c') }}
     - cmake
-    # libudev is on its own in CentOS 6, packaged with systemd in CentOS 7
-    - {{ cdt('libudev-devel') }}  # [linux and cdt_name=='cos6']
     - ninja
     - pkg-config
   host:
     - fftw
     - libusb
-    # restrict to cos6-compatible libusb (and libudev)
-    - libusb-cos6  # [linux and cdt_name=='cos6']
     - pthreads-win32  # [win]
 
 outputs:
@@ -40,8 +36,6 @@ outputs:
         - ninja
       host:
         - libusb
-        # restrict to cos6-compatible libusb (and libudev)
-        - libusb-cos6  # [linux and cdt_name=='cos6']
         - pthreads-win32  # [win]
       run:
         - pthreads-win32  # [win]
@@ -83,6 +77,9 @@ outputs:
   - name: hackrf
     script: install.sh  # [unix]
     script: install.bat  # [not unix]
+    build:
+      # instructions for manually linking udev rules
+      post-link: post-link  # [linux]
     requirements:
       build:
         - {{ compiler('c') }}
@@ -117,7 +114,6 @@ about:
   license_family: GPL
   license_file: COPYING
   summary: Host software for HackRF, a low cost, open source software radio platform.
-  # The remaining entries in this section are optional, but recommended.
   description: >
     HackRF One from Great Scott Gadgets is a Software Defined Radio peripheral capable of transmission or reception of radio signals from 1 MHz to 6 GHz. Designed to enable test and development of modern and next generation radio technologies, HackRF One is an open source hardware platform that can be used as a USB peripheral
     or programmed for stand-alone operation.
