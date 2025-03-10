@@ -12,7 +12,7 @@ source:
     - 0001-Rename-hackrf.dll-to-hackrf-0.dll-on-Windows.patch
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
