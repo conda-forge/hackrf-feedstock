@@ -23,7 +23,7 @@ requirements:
   host:
     - fftw
     - libusb
-    - pthreads-win32  # [win]
+    - winpthreads-devel  # [win]
 
 outputs:
   - name: libhackrf{{ lib_major_version }}
@@ -36,9 +36,7 @@ outputs:
         - ninja
       host:
         - libusb
-        - pthreads-win32  # [win]
-      run:
-        - pthreads-win32  # [win]
+        - winpthreads-devel  # [win]
     test:
       commands:
         # verify that libraries get installed
