@@ -98,11 +98,13 @@ outputs:
         - setlocal EnableDelayedExpansion  # [win]
 
         # verify that executables get installed
-        {% set cmds = ["clock", "cpldjtag", "debug", "operacake", "spiflash"] %}
-        {% set cmds = cmds + ["sweep", "transfer"] %}
-        {% for cmd in cmds %}
-        - hackrf_{{ cmd }} -h
-        {% endfor %}
+        - hackrf_clock -h
+        - hackrf_cpldjtag -h
+        - hackrf_debug -h
+        - hackrf_operacake -h
+        - hackrf_spiflash -h
+        - hackrf_sweep -h
+        - hackrf_transfer -h
         # hackrf_info does not have help flag, exits 1 when device not found
         - hackrf_info || ec=$?; if [ $ec -gt 1 ]; then exit $ec; fi  # [not win]
         - hackrf_info || if !ERRORLEVEL! LEQ 1 cmd /c "exit /b 0"  # [win]
