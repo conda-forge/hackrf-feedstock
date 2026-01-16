@@ -1,6 +1,9 @@
 setlocal EnableDelayedExpansion
 @echo on
 
+:: Add module for finding winpthreads
+cmake -E copy "%RECIPE_DIR%/FindPThreads4W.cmake" "%SRC_DIR%/host/cmake/modules/FindPThreads4W.cmake"
+
 cd host
 if errorlevel 1 exit 1
 
@@ -16,8 +19,6 @@ cmake -G "Ninja" ^
     -DENABLE_STATIC_LIB=OFF ^
     -DLIBUSB_INCLUDE_DIR:PATH="%LIBRARY_INC%\libusb-1.0" ^
     -DLIBUSB_LIBRARIES:PATH="%LIBRARY_LIB%\libusb-1.0.lib" ^
-    -DTHREADS_PTHREADS_INCLUDE_DIR="%LIBRARY_INC%" ^
-    -DTHREADS_PTHREADS_WIN32_LIBRARY:FILEPATH="%LIBRARY_LIB%\pthread.lib" ^
     ..
 if errorlevel 1 exit 1
 
