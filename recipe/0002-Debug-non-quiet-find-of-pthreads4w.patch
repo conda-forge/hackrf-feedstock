@@ -1,0 +1,25 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Ryan Volz <ryan.volz@gmail.com>
+Date: Fri, 16 Jan 2026 17:57:08 -0500
+Subject: [PATCH] Debug: non-quiet find of pthreads4w
+
+---
+ host/libhackrf/CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/host/libhackrf/CMakeLists.txt b/host/libhackrf/CMakeLists.txt
+index ccc7f89d..809ef30c 100644
+--- a/host/libhackrf/CMakeLists.txt
++++ b/host/libhackrf/CMakeLists.txt
+@@ -37,7 +37,7 @@ endif()
+ 
+ find_package(LIBUSB REQUIRED)
+ find_package(Threads REQUIRED)
+-find_package(PThreads4W QUIET)
++find_package(PThreads4W)
+ 
+ add_subdirectory(src)
+ 
+-- 
+2.51.0
+

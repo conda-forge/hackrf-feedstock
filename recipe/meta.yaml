@@ -10,6 +10,7 @@ source:
   sha256: 283387d7a1aad965b07287adea7361a2a86176e854e2f2b808f58b5626015de4
   patches:
     - 0001-Rename-hackrf.dll-to-hackrf-0.dll-on-Windows.patch
+    - 0002-Debug-non-quiet-find-of-pthreads4w.patch
 
 build:
   number: 0
