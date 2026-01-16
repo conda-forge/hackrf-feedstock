@@ -23,9 +23,6 @@ if [%PKG_NAME:~0,9%] == [libhackrf] (
         cmake -E rm -f %LIBRARY_PREFIX%\bin\hackrf.lib %LIBRARY_PREFIX%\include\libhackrf\hackrf.h
         if errorlevel 1 exit 1
     )
-    :: remove static library, per CFEP-18
-    cmake -E rm -f %LIBRARY_PREFIX%\bin\hackrf_static.lib
-    if errorlevel 1 exit 1
 ) else if [%PKG_NAME%] == [hackrf] (
     cmake -P hackrf-tools\cmake_install.cmake
     if errorlevel 1 exit 1
