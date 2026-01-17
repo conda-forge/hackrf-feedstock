@@ -18,8 +18,6 @@ if [[ "${PKG_NAME:0:9}" == libhackrf ]]; then
         rm -rf $PREFIX/include/libhackrf
         rm -f $PREFIX/lib/libhackrf${SHLIB_EXT}
     fi
-    # remove static library, per CFEP-18
-    rm -f $PREFIX/lib/libhackrf.a
     if [[ $target_platform == linux* ]] ; then
         # don't install udev rules with library, install them with tools package
         rm -f $PREFIX/lib/udev/rules.d/53-hackrf.rules
