@@ -1,4 +1,4 @@
-{% set version = "2026.01.1" %}
+{% set version = "2026.01.2" %}
 {% set lib_major_version = "0" %}
 
 package:
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/greatscottgadgets/hackrf/releases/download/v{{ version }}/hackrf-{{ version }}.tar.xz
-  sha256: 283387d7a1aad965b07287adea7361a2a86176e854e2f2b808f58b5626015de4
+  sha256: 71571bc8cfd26b3b8e1293efbd69fc8d94ce0baf802bd5af1e6d851d1c2cbc57
   patches:
     - 0001-Rename-hackrf.dll-to-hackrf-0.dll-on-Windows.patch
 
